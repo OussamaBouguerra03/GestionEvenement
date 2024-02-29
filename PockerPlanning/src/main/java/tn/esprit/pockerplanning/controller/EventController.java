@@ -17,7 +17,7 @@ public class EventController {
 	@Autowired
 	EventService sevent;
 
-	//http://localhost:8080/pidev/event/add
+ 
 		@PostMapping("/add")
 		public Evenement addEvent(@RequestBody Evenement e){
 			String image = e.getImage();
@@ -32,14 +32,14 @@ public class EventController {
 	}
 
 
-		//http://localhost:8080/pidev/event/update
+		 
 		@PutMapping("/update/{id}")
 		public Evenement updateEvent(@RequestBody Evenement e,@PathVariable("id")Long id){
 
 			return sevent.updateEvent(e,id);
 		}
 		
-		//http://localhost:8080/pidev/event/delete/{id}
+		 
 		 @DeleteMapping("/delete/{id}")
 		 public String deleteEvent(@PathVariable("id")Long id ){
 			 sevent.deleteEvent(id);
@@ -49,13 +49,13 @@ public class EventController {
 	public Evenement updateEventRating(@PathVariable("id") Long id, @RequestParam("rating") int rating) {
 		return sevent.updateEventRating(id, rating);
 	}
-		//http://localhost:8080/pidev/event/getbyid/{id}
+		 
 		  @GetMapping("/getbyid/{id}")
 		  public Evenement getEvent(@PathVariable("id")Long id){
 			  return sevent.getEvent(id);
 		  }
 		  
-		//http://localhost:8080/pidev/event/getall
+		 
 		  @GetMapping("/getall")
 		  public List<Evenement> getEvents(){
 			  return sevent.getEvents();

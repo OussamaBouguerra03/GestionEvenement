@@ -24,7 +24,7 @@ public class ActivityController {
 	ActivityRepository actrepo;
 
 
-	// http://localhost:8080/activity/add
+ 
 	@PostMapping("/add")
 	public Activity addActivity(@RequestBody Activity a) {
 		String picture = a.getPicture();
@@ -37,34 +37,32 @@ public class ActivityController {
 		return actrepo.findActivitiesByEventId(eventId);
 	}
 
-	//http://localhost:8080/pidev/event/add
-
-	// http://localhost:8080/pidev/activity/update
+	 
 	@PutMapping("/update/{id}")
 	public Activity updateActivity(@RequestBody Activity a, @PathVariable("id") Long id) {
 		return sact.updateActivity(a, id);
 	}
 
-	// http://localhost:8080/pidev/activity/delete/{id}
+ 
 	@DeleteMapping("/delete/{id}")
 	public String deleteActivity(@PathVariable("id") Long id) {
 		sact.deleteActivity(id);
 		return " this activity was deleted with success";
 	}
 
-	// http://localhost:8080/pidev/activity/getbyid/{id}
+	 
 	@GetMapping("/getbyid/{id}")
 	public Activity getActivity(@PathVariable("id") Long id) {
 		return sact.getActivity(id);
 	}
 
-	// http://localhost:8080/pidev/activity/getall
+	 
 	@GetMapping("/getall")
 	public List<Activity> getActivities() {
 		return sact.getActivities();
 	}
 
-	// ActivityService.java
+	 
 
 
 	@GetMapping("/pagedd")
